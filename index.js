@@ -17,14 +17,29 @@
 
 'use strict';
 
-var forEach = require('array.prototype.foreach');
-var entries = require('object.entries');
-var warning = require('warning');
-var has = require('has');
-var trim = require('string.prototype.trim');
+var forEach = function forEach(array, func, thisArg) {
+  array.forEach(func, thisArg);
+};
+
+var entries = function entries(object) {
+  var result = [];
+  for (var keys = Object.keys(object), i = 0; i < keys.length; i += 1) {
+    var key = keys[i];
+    result.push([key, object[key]]);
+  }
+  return result;
+};
+
+var has = function has(object, key) {
+  return Object.hasOwnProperty.call(object, key);
+};
+
+var trim = function trim(string) {
+  return string.trim();
+};
 
 var warn = function warn(message) {
-  warning(false, message);
+  console.warn(message);
 };
 
 var defaultReplace = String.prototype.replace;

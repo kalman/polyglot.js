@@ -3,8 +3,8 @@ clean:
 
 build-js:
 	@mkdir -p build
-	@cp ./index.js ./build/polyglot.js
-	@./node_modules/.bin/uglifyjs -o ./build/polyglot.min.js ./index.js
+	@./node_modules/.bin/browserify -s Polyglot index.js -o ./build/polyglot.js
+	@./node_modules/.bin/uglifyjs ./build/polyglot.js -o ./build/polyglot.min.js 
 	@gzip -c ./build/polyglot.min.js > ./build/polyglot.min.js.gz
 
 annotate:

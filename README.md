@@ -1,3 +1,8 @@
+This is a simple fork of https://github.com/airbnb/polyglot.js that:
+1. Adds browserify into the build step to expose `window.Polyglot`.
+2. Hacks out the node module dependencies to reduce the minified bundle size from ~90k to ~7.5k.
+
+
 Polyglot.js
 ===========
 
